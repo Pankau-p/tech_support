@@ -20,6 +20,22 @@ function delete_product($db, $product_code) {
     return $success;
 }
 
+// Add a product with productCode, name, version, and releaseDate
+function add_product($db, $product_code, $name, $version, $releaseDate) {
+    $query = 'INSERT INTO products
+                (productCode, name, version, releaseDate) 
+                VALUES
+                (:product_code, :name, :version, :releaseDate)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':product_code', $product_code);
+    $statement->bindValue(':name', $name);
+    $statement->bindValue(':version', $version);
+    $statement->bindValue(':releaseDate', $releaseDate);
+    $success = $statement->execute();
+    $statement->closeCursor();
+    return $success;
+}
+
 
 ?>
 
