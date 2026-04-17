@@ -8,6 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $products = get_products($db);
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // var_dump($_POST);
+    // exit;
     $action = $_POST['action'] ?? '';
 
     if ($action === 'delete_product') {

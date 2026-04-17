@@ -10,7 +10,7 @@
             <h1>Sports Pro Technical Support</h1>
             <p> Sports management software for the sports enthusiast</p>
             <nav>
-                <a href='/index.php'>Home</a>
+                <a href='./../product_manager/index.php'>Home</a>
             </nav>
             <hr class="divider">
         </header>
