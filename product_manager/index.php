@@ -15,14 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         if (!empty($product_code)) {
             delete_product($db, $product_code);
-
         }
-        trim($_DELETE['product_code'] ?? '');
-
     }
-    if (empty($product_code)) {
-        $errors = "Invalid Product Selected";
-    } else {
-    }
+    $products = get_products($db);
 }
+
+// render page
+include('../view/header.php');
+include('../view/product_list.php');
+include('../view/footer.php');
 ?>

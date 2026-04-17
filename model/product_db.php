@@ -10,6 +10,18 @@ function get_products($db) {
 }
 
 // Delete one product with product code
-function delete_product($db, $product_code) {}
+function delete_product($db, $product_code) {
+    $query = 'DELETE FROM products 
+              WHERE productCode = :product_code';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':product_code', $product_code);
+    $success = $statement->execute();
+    $statement->closeCursor();
+    return $success;
+}
+
+
 ?>
+
+
 

@@ -2,7 +2,7 @@
 <html>
 
 <!-- the head section -->
-<?php include 'view/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <!-- the body section -->
 <body>
@@ -17,6 +17,6 @@
         <p>&nbsp;</p>
     </main>
 
-<?php include 'view/footer.php'; ?>
+<?php include 'footer.php'; ?>
 </body>
 </html>
