@@ -15,8 +15,7 @@
                 <td><?php echo htmlspecialchars($product['productCode']); ?></td>
                 <td><?php echo htmlspecialchars($product['name']); ?></td> 
                 <td><?php echo htmlspecialchars($product['version']); ?></td> 
-                <td><?php echo htmlspecialchars($product['releaseDate']); ?></td> 
-
+                <td><?php echo date('Y-m-d', strtotime($product['releaseDate'])); ?></td>
                 <td>
                     <form method="post" action='./../product_manager/index.php'>
                         <input type="hidden" name="action" 
@@ -28,6 +27,7 @@
             </tr>
             <?php endforeach; ?>
     </table>
+    
     <p><a href="?action=show_add_form">Add Product</a></p>
 
 </main>

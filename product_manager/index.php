@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = $_POST['name'] ?? '';
         $version = $_POST['version'] ?? '';
         $releaseDate = $_POST['releaseDate'] ?? '';
+        var_dump($releaseDate);
 
         // Check for errors
         if (empty($product_code)) {
