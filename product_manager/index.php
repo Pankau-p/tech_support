@@ -5,6 +5,15 @@ require_once('../model/product_db.php');
 
 $error = null;
 
+$action = $_GET['action'] ?? '';
+
+if ($action ===  'show_add_form') {
+    include('../view/header.php');
+    include('../view/add_product.php');
+    include('../view/footer.php');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $action = $_POST['action'] ?? '';
