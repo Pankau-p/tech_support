@@ -9,7 +9,7 @@ $action = $_GET['action'] ?? '';
 
 if ($action ===  'show_add_technician_form') {
     include('../../view/shared/header.php');
-    include('../../view/add_technician.php');
+    include('../../view/technician/add_technician.php');
     include('../../view/shared/footer.php');
     exit;
 }
@@ -65,6 +65,6 @@ $technicians = get_technicians($db);
 // render page
 include('../../view/shared/header.php');
 include('../../view/shared/error.php');
-include('../../view/technician_list.php');
+include('../../view/technician/technician_list.php');
 include('../../view/shared/footer.php');
 ?>
