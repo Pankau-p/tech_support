@@ -7,7 +7,7 @@ $error = null;
 
 $action = $_GET['action'] ?? '';
 
-if ($action ===  'show_add_form') {
+if ($action ===  'show_add_product_form') {
     include('../view/header.php');
     include('../view/add_product.php');
     include('../view/footer.php');

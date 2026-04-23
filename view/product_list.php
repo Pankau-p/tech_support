@@ -28,6 +28,6 @@
             <?php endforeach; ?>
     </table>
     
-    <p><a href="?action=show_add_form">Add Product</a></p>
+    <p><a href="?action=show_add_product_form">Add Product</a></p>
 
 </main>

@@ -1,30 +1,38 @@
 <main>
-    <h1>Add Product</h1>
-    <form action="index.php" method="post" id="add_product_form">
-        <input type="hidden" name="action" value="add_product">
+    <h1>Add Technician</h1>
+    <form action="index.php" method="post" id="add_technician_form">
+        <input type="hidden" name="action" value="add_technician">
 
-        <label>Code:</label>
-        <input type="text" name="product_code" />
+        <label>Tech ID:</label>
+        <input type="text" name="tech_id" />
         <br>
 
-        <label>Name:</label>
-        <input type="text" name="name" />
+        <label>First Name:</label>
+        <input type="text" name="first_name" />
         <br>
 
-        <label>Version</label>
-        <input type="text" name="version" />
+        <label>Last Name</label>
+        <input type="text" name="last_name" />
         <br>
 
-        <label>Release Date</label>
-        <input type="text" name="releaseDate" />
+        <label>Email</label>
+        <input type="text" name="email" />
         <br>
+
+        <label>Phone</label>
+        <input type="text" name="phone" />
+        <br>
+
+        <label>Password</label>
+        <input type="text" name="password" />
+        <br>        
 
         <label>&nbsp;</label>
-        <input type="submit" value="Add Product" />
+        <input type="submit" value="Add Technician" />
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=list_products">View Product List</a>
+        <a href="index.php?action=list_technicans">View Technician List</a>
     </p>
 
 </main>

@@ -7,7 +7,7 @@ $error = null;
 
 $action = $_GET['action'] ?? '';
 
-if ($action ===  'show_add_form') {
+if ($action ===  'show_add_technician_form') {
     include('../view/header.php');
     include('../view/add_technician.php');
     include('../view/footer.php');
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tech_id = $_POST['tech_id'] ?? '';
 
         if (!empty($tech_id)) {
-            delete_product($db, $tech_id);
+            delete_technician($db, $tech_id);
         } else {
             }
             $error = "Invalid technician selected";
@@ -52,7 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // If no errors, send to model
         if (!$error) {
-            add_product($db, $product_code, $name, $version, $releaseDate);
+            add_technician($db, $tech_id, $first_name, $last_name,
+                           $email, $phone, $password);
         } 
     }
 }
