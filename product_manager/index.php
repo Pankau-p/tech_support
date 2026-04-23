@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($product_code)) {
             delete_product($db, $product_code);
         } else {
-            }
             $error = "Invalid product selected";
+            }
 
     } elseif ($action === 'add_product') {
         
@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = $_POST['name'] ?? '';
         $version = $_POST['version'] ?? '';
         $releaseDate = $_POST['releaseDate'] ?? '';
-        var_dump($releaseDate);
 
         // Check for errors
         if (empty($product_code)) {
@@ -43,22 +42,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Name required.";
         } else if(empty($version)) {
             $error = "Version required.";
-        }
-
-        // User can specify and valid date format for the release date
-        $timestamp = strtotime($releaseDate);
-        if ($timestamp) {
-            $releaseDate = date('Y-m-d', $timestamp);
         } else {
-            $error = "Invalid date format.";
+            $timestamp = strtotime($releaseDate); // User can specify and valid date format for the release date
+            if (!$timestamp) {
+                $error = "Invalid date format.";
+            } else {
+                $releaseDate = date('Y-m-d', $timestamp);
+            }
         }
 
         // If no errors, send to model
         if (!$error) {
             add_product($db, $product_code, $name, $version, $releaseDate);
-        } else {
-            $error = "Invalid product data. Check all fields and try again.";
-        }
+        } 
     }
 }
 
