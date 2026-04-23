@@ -1,4 +1,4 @@
-        <?php
+<?php
 // Get all technicians
 function get_technicians($db){
     $query = 'SELECT * FROM technicians ORDER BY techID';

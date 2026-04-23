@@ -1,4 +1,3 @@
-<?php var_dump($technicians); ?>
 <main>
     <h1>Product List</h1>
 
