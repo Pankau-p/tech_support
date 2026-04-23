@@ -2,7 +2,7 @@
 <html>
 
 <!-- the head section -->
-<?php include 'header.php'; ?>
+<?php include 'shared/header.php'; ?>
 
 <!-- the body section -->
 <body>
@@ -17,6 +17,6 @@
         <p>&nbsp;</p>
     </main>
 
-<?php include 'footer.php'; ?>
+<?php include 'shared/footer.php'; ?>
 </body>
 </html>

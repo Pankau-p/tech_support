@@ -1,16 +1,16 @@
 <?php
 
-require_once('../model/database.php');
-require_once('../model/product_db.php');
+require_once('../../model/database.php');
+require_once('../../model/product_db.php');
 
 $error = null;
 
 $action = $_GET['action'] ?? '';
 
 if ($action ===  'show_add_product_form') {
-    include('../view/header.php');
-    include('../view/add_product.php');
-    include('../view/footer.php');
+    include('../../view/shared/header.php');
+    include('../../view/add_product.php');
+    include('../../view/shared/footer.php');
     exit;
 }
 
@@ -63,8 +63,8 @@ $products = get_products($db);
 
 
 // render page
-include('../view/header.php');
-include('../view/error.php');
-include('../view/product_list.php');
-include('../view/footer.php');
+include('../../view/shared/header.php');
+include('../../view/shared/error.php');
+include('../../view/product_list.php');
+include('../../view/shared/footer.php');
 ?>

@@ -20,7 +20,7 @@
                 <td><?php echo htmlspecialchars($technician['password']); ?></td> 
 
                 <td>
-                    <form method="post" action='./../technician_manager/index.php'>
+                    <form method="post" action='./../controller/technician_manager/index.php'>
                         <input type="hidden" name="action" 
                                value="delete_technician">
                         <input type="hidden" name="tech_id" 

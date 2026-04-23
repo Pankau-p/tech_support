@@ -1,12 +1,12 @@
-<?php include 'view/header.php'; ?>
+<?php include 'view/shared/header.php'; ?>
 <link rel='stylesheet' href='/main.css'>
 <main>
     <nav>
         
     <h2>Administrators</h2>
     <ul>
-        <li><a href="product_manager">Manage Products</a></li>
-        <li><a href="technician_manager">Manage Technicians</a></li>
+        <li><a href="controller/product_manager">Manage Products</a></li>
+        <li><a href="controller/technician_manager">Manage Technicians</a></li>
         <li><a href="./view/under_construction.php">Manage Customers</a></li>
         <li><a href="./view/under_construction.php">Create Incident</a></li>
         <li><a href="./view/under_construction.php">Assign Incident</a></li>
@@ -25,4 +25,4 @@
     
     </nav>
 </section>
-<?php include 'view/footer.php'; ?>
+<?php include 'view/shared/footer.php'; ?>

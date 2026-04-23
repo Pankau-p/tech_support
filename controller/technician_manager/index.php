@@ -1,16 +1,16 @@
 <?php
 
-require_once('../model/database.php');
-require_once('../model/technician_db.php');
+require_once('../../model/database.php');
+require_once('../../model/technician_db.php');
 
 $error = null;
 
 $action = $_GET['action'] ?? '';
 
 if ($action ===  'show_add_technician_form') {
-    include('../view/header.php');
-    include('../view/add_technician.php');
-    include('../view/footer.php');
+    include('../../view/shared/header.php');
+    include('../../view/add_technician.php');
+    include('../../view/shared/footer.php');
     exit;
 }
 
@@ -63,8 +63,8 @@ $technicians = get_technicians($db);
 
 
 // render page
-include('../view/header.php');
-include('../view/error.php');
-include('../view/technician_list.php');
-include('../view/footer.php');
+include('../../view/shared/header.php');
+include('../../view/shared/error.php');
+include('../../view/technician_list.php');
+include('../../view/shared/footer.php');
 ?>

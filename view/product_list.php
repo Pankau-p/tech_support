@@ -17,7 +17,7 @@
                 <td><?php echo htmlspecialchars($product['version']); ?></td> 
                 <td><?php echo date('Y-m-d', strtotime($product['releaseDate'])); ?></td>
                 <td>
-                    <form method="post" action='./../product_manager/index.php'>
+                    <form method="post" action='./../controller/product_manager/index.php'>
                         <input type="hidden" name="action" 
                                value="delete_product">
                         <input type="hidden" name="product_code" 
