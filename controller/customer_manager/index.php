@@ -1,7 +1,7 @@
 <?php
 
 require_once('../../model/database.php');
-require_once('../../model/product_db.php');
+require_once('../../model/customer_db.php');
 
 $error = null;
 
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $action = $_POST['action'] ?? '';
 
-    if ($action === 'delete_product') {
+    if ($action === 'select_customer') {
         
         $product_code = $_POST['product_code'] ?? '';
 
@@ -59,12 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Refresh state to get updates
-$products = get_products($db);
+$customers = get_customers($db);
 
 
 // render page
 include('../../view/shared/header.php');
 include('../../view/shared/error.php');
-include('../../view/product/product_list.php');
+include('../../view/customer/customer_list.php');
 include('../../view/shared/footer.php');
 ?>

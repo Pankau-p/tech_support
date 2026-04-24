@@ -9,9 +9,9 @@ function get_customers($db){
     return $customers;
 }
 
-// Delete one customer with customer ID
-function delete_customer($db, $customer_id) {
-    $query = 'DELETE FROM customers
+// Select one customer with customer ID
+function select_customer($db, $customer_id) {
+    $query = 'SELECT FROM customers
               WHERE customerID = :customer_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':customer_id', $customer_id);
