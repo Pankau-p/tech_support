@@ -32,7 +32,7 @@
         <br>
 
         <label>Country Code</label>
-        <input type="input" name="country_code" />
+        <input type="select" name="country_code" />
         <br>
         
         <label>Phone</label>

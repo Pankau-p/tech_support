@@ -10,14 +10,15 @@ function get_customers($db){
 }
 
 // Select one customer with customer ID
-function select_customer($db, $customer_id) {
-    $query = 'SELECT FROM customers
+function get_customer($db, $customer_id) {
+    $query = 'SELECT * FROM customers
               WHERE customerID = :customer_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':customer_id', $customer_id);
-    $success = $statement->execute();
+    $statement->execute();
+    $customer = $statement->fetch();
     $statement->closeCursor();
-    return $success;              
+    return $customer;              
 }
 
 // Add a customer with customer ID, firstName, lastName, 

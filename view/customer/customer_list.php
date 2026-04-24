@@ -11,10 +11,11 @@
 
         <?php foreach ($customers as $customer): ?>
             <tr>
-                <td><?php echo htmlspecialchars($customer['firstName'] . ' ' . $customer['lastName']); ?></td>                <td><?php echo htmlspecialchars($customer['email']); ?></td> 
+                <td><?php echo htmlspecialchars($customer['firstName'] . ' ' . $customer['lastName']); ?></td>                
+                <td><?php echo htmlspecialchars($customer['email']); ?></td> 
                 <td><?php echo htmlspecialchars($customer['city']); ?></td> 
                 <td>
-                    <form method="post" action='./../controller/customer_manager/index.php'>
+                    <form method="post" action='./../../controller/customer_manager/index.php'>
                         <input type="hidden" name="action" 
                                value="select_customer">
                         <input type="hidden" name="customer_id" 
