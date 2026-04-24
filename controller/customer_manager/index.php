@@ -11,6 +11,7 @@ if ($action === 'select_customer') {
     $customer_id = $_POST['customer_id'] ?? null;
     if ($customer_id) {
         $customer = get_customer($db, $customer_id);
+        //$countries = get_countries($db);
         include('../../view/customer/customer_form.php');        
         exit;
     } else {
@@ -18,6 +19,12 @@ if ($action === 'select_customer') {
     }
 }
 
+if ($action === 'show_add_customer') {
+    $customer = null;
+    //$countries = get_countries($db);
+    include('../../view/customer/customer_form.php');
+    exit;
+}
 
 // Refresh state to get updates
 $customers = get_customers($db);
