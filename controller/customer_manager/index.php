@@ -30,6 +30,37 @@ if ($action === 'show_add_customer') {
     exit;
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $action = $_POST['action'] ?? '';
+    $customerID = $_POST['customer_id'] ?? '';
+    $firstName = $_POST['first_name'] ?? '';
+    $lastName = $_POST['last_name'] ?? '';
+    $address = $_POST['address'] ?? '';
+    $city = $_POST['city'] ?? '';
+    $state = $_POST['state'] ?? '';
+    $postalCode = $_POST['postal_code'] ?? '';
+    $countryCode = $_POST['country_code'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if ($action === 'add_customer') {
+
+    add_customer($db, $firstName, $lastName, $address, 
+                 $city, $state, $postalCode, $countryCode,
+                 $phone, $email, $password);
+    }
+
+    elseif ($action === 'update_customer') { 
+
+
+    update_customer($db, $customerID, $firstName, $lastName, $address, 
+                    $city, $state, $postalCode, $countryCode,
+                    $phone, $email, $password);
+    }
+}
+
 // Refresh state to get updates
 $customers = get_customers($db);
 
