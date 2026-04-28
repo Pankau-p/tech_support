@@ -99,12 +99,24 @@ a:hover {
 table {
     border: 1px solid #001963;
     border-collapse: collapse;
+    width: 100%;
+    margin-top: 1em;
 }
+
+tr:hover {
+    background-color: #f5f7ff;
+}
+
 td, th {
-    border: 1px dashed #001963;
+    border: 1px solid #001963;
     padding: .2em .5em .2em .5em;
     text-align: left;
 }
+
+th {
+    background-color: #e6ecff;
+}
+
 #no_border {
     border: 0px;
 }
@@ -115,9 +127,7 @@ td, th {
 form {
     margin: 0;
 }
-br {
-    clear: left;
-}
+
 textarea {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 80%;
@@ -134,42 +144,24 @@ textarea {
     width: 15em;
 }
 
-#aligned {
-    margin: .5em 0 2em;
-}
-#aligned label {
-    width: 8em;
-    margin-top: .2em;
-    margin-right: 1em;
-    margin-bottom: .5em;
-    float: left;
-}
-#aligned input {
-    float: left;
-}
-#aligned input[text] {
-    width: 15em;
-}
-#aligned .message {
-    margin-left: .5em;
-    width: 15em;
-}
 /* Additional styles for the Product Manager application */
-#add_product_form {
+#add_form {
     margin: .5em 0;
 }
 
-#add_product_form label {
-    width: 6em;
-    padding-right: 1em;
-    padding-bottom: .5em;
-    float: left;
+#add_form label {
+    display: inline-block;
+    width: 140px;
+    margin-bottom: 8px;
 }
 
-#add_product_form input {
-    float: left;
-}
+#add_form input {
+    margin-bottom: 8px;}
 
-#add_product_form input[text] {
+#add_form input[type="text"] {
     width: 15em;
+}
+
+#add_form br {
+    line-height: 2;
 }

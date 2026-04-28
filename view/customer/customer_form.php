@@ -1,6 +1,6 @@
 <main>
     <h1><?= isset($customer['customerID']) ? 'Edit Customer' : 'Add Customer' ?></h1>
-    <form action="../customer_manager/index.php" method="post" id="customer_form">
+    <form action="../customer_manager/index.php" method="post" id="add_form">
 
         <?php if (isset($customer['customerID'])): ?>
             <input type="hidden" name="action" value="update_customer">

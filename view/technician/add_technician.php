@@ -1,6 +1,6 @@
 <main>
     <h1>Add Technician</h1>
-    <form action="index.php" method="post" id="add_technician_form">
+    <form action="index.php" method="post" id="add_form">
         <input type="hidden" name="action" value="add_technician">
 
         <label>Tech ID:</label>

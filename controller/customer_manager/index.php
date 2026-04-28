@@ -12,7 +12,9 @@ if ($action === 'select_customer') {
     if ($customer_id) {
         $customer = get_customer($db, $customer_id);
         //$countries = get_countries($db);
-        include('../../view/customer/customer_form.php');        
+        include('../../view/shared/header.php');
+        include('../../view/customer/customer_form.php');
+        include('../../view/shared/footer.php');
         exit;
     } else {
         $error  = "No customer selected.";

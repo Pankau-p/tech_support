@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>SportsPro Technical Support</title>
-        <link rel='stylesheet' href='/main.css'>
+        <link rel='stylesheet' href='./../../../Assignment_2/main.css'>
     </head>
     <body>
         <header>
