@@ -21,6 +21,15 @@ function get_customer($db, $customer_id) {
     return $customer;              
 }
 
+function get_countries($db) {
+    $query = 'SELECT * FROM countries';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $countries = $statement->fetchAll();
+    $statement->closeCursor();
+    return $countries;
+}
+
 // Add a customer with customer ID, firstName, lastName, 
 // address, city, state, postalCode, countryCode, phone, email
 // and password

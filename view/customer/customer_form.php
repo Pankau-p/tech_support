@@ -1,5 +1,5 @@
 <main>
-    <h1><?= isset($customer['customerID']) ? 'Edit Customer' : 'Add Customer' ?></h1>
+    <h1><?= isset($customer['customerID']) ? 'View/Update Customer' : 'Add Customer' ?></h1>
     <form action="../customer_manager/index.php" method="post" id="add_form">
 
         <?php if (isset($customer['customerID'])): ?>
@@ -29,6 +29,12 @@
         <br>
         <label>Country Code:</label>
         <select name="country_code">
+            <?php foreach ($countries as $country) : ?>
+                <option value="<?= $country['countryCode'] ?>"
+                    <?php if (($customer['countryCode'] ?? '') === $country['countryCode']) echo 'selected'; ?>>
+                    <?= $country['countryName'] ?>
+                </option>
+                <?php endforeach; ?>
         </select>
         <br>
         <label>Phone</label>
