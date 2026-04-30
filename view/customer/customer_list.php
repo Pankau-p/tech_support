@@ -1,6 +1,12 @@
 <main>
     <h1>Customer Search</h1>
 
+    <form method="get" action='index.php'>
+        <input type="hidden" name="action" value="search_customers">
+        <input type="text" name="lastName" placeholder="Search by Lastname">
+            <button type="submit">Search</button>
+    </form>
+
     <table border='1'>
         <tr>
             <th>Name</th>
