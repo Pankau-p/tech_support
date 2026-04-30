@@ -104,6 +104,7 @@ function update_customer($db, $customerID, $firstName, $lastName,
     $statement->bindValue(':customerID', $customerID);
 
     return $statement->execute();
+
 }
 
 
