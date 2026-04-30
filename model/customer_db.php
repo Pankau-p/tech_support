@@ -21,6 +21,18 @@ function get_customer($db, $customer_id) {
     return $customer;              
 }
 
+// Search for a customer with lastName
+function search_customers($db, $lastName) {
+    $query = 'SELECT * FROM customers
+              WHERE lastName LIKE :lastName';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':lastName', $lastName);
+    $statement->execute();
+    $customers = $statement->fetchAll();
+    $statement->closeCursor();
+    return $customers;
+}
+
 function get_countries($db) {
     $query = 'SELECT * FROM countries';
     $statement = $db->prepare($query);
@@ -93,4 +105,6 @@ function update_customer($db, $customerID, $firstName, $lastName,
 
     return $statement->execute();
 }
+
+
 ?>

@@ -3,8 +3,9 @@
 
     <form method="get" action='index.php'>
         <input type="hidden" name="action" value="search_customers">
-        <input type="text" name="lastName" placeholder="Search by Lastname">
+        <input type="text" name="lastName" placeholder="Search by Lastname" value="<?= htmlspecialchars($lastName ?? '') ?>">
             <button type="submit">Search</button>
+            <a href="index.php?action=list_customers">Show All</a>
     </form>
 
     <table border='1'>

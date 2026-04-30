@@ -22,6 +22,13 @@ $password = $_POST['password'] ?? '';
 
 if ($action === "search_customers") {
 
+    $lastName = $_GET['lastName'] ?? '';
+    // Search by lastName, allow partial matches (LIKE)
+    $customers = search_customers($db, '%' . $lastName . '%');
+    include('../../view/shared/header.php');
+    include('../../view/customer/customer_list.php');
+    include('../../view/shared/footer.php');
+
     } elseif ($action === 'select_customer') {
         $customer_id = $_POST['customer_id'] ?? null;
         if ($customer_id) {
