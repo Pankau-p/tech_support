@@ -3,8 +3,6 @@
 require_once('../../model/database.php');
 require_once('../../model/customer_db.php');
 
-$error = null;
-
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 $customerID = $_POST['customer_id'] ?? '';
@@ -43,30 +41,83 @@ if ($action === "search_customers") {
         }
 
     } elseif ($action === 'show_add_customer') {
-        $customer = null;
+        $customer = ['countryCode' => 'CA'];
         $countries = get_countries($db);
         include('../../view/shared/header.php');
         include('../../view/customer/customer_form.php');
         include('../../view/shared/footer.php');
         exit;
 
-    } elseif ($action === 'add_customer') {
+    } elseif ($action === 'add_customer' || $action === "update_customer") {
 
-        add_customer($db, $firstName, $lastName, $address, 
-                 $city, $state, $postalCode, $countryCode,
-                 $phone, $email, $password);
-        
-        header("Location: index.php?action=list_customers");
-        exit;
+        $errors = [];
 
-    } elseif ($action === 'update_customer') { 
 
-        update_customer($db, $customerID, $firstName, $lastName, $address, 
+        $required_fields = [    
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'address' => $address,
+            'city' => $city,
+            'state' => $state,
+            'email' => $email,
+            ];
+
+        foreach ($required_fields as $field=>$value) {
+            if (strlen($value) < 1 || strlen($value) > 50) {
+                $errors[$field] = "Required, must be less than 51 characters.";
+            }
+        }
+
+        if (strlen($postalCode) < 1 || strlen($postalCode) > 20) {
+            $errors['postalCode'] = "Required, must be less than 21 characters.";
+        } 
+
+        if (!preg_match('/^\(\d{3}\) \d{3}-\d{4}$/', $phone)) {
+            $errors['phone'] = "Use (999) 999-9999 format.";
+        } 
+
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = "Invalid Email.";
+        } 
+
+        if(strlen($password) < 6 || strlen($password) > 20) {
+            $errors['password'] = "Required, must be between 6 and 21 characters.";
+        }
+
+        if (empty($errors)) {
+            if ($action === "add_customer") {
+                add_customer($db, $firstName, $lastName, $address, 
                     $city, $state, $postalCode, $countryCode,
                     $phone, $email, $password);
         
-        header("Location: index.php?action=list_customers");
-        exit;
+                header("Location: index.php?action=list_customers");
+                exit;
+            } elseif ($action === "update_customer"){
+                update_customer($db, $customerID, $firstName, $lastName, $address, 
+                    $city, $state, $postalCode, $countryCode,
+                    $phone, $email, $password);
+        
+                header("Location: index.php?action=list_customers");
+                exit;
+            } 
+        } else {
+            $customer = [
+                'customerID' => $customerID,
+                'firstName' => $firstName,
+                'lastName' => $lastName,
+                'address' => $address,
+                'city' => $city,
+                'state' => $state,
+                'postalCode' => $postalCode,
+                'countryCode' => $countryCode,
+                'phone' => $phone,
+                'email' => $email,
+            ];
+            $countries = get_countries($db);
+            include('../../view/shared/header.php');
+            include('../../view/customer/customer_form.php');
+            include('../../view/shared/footer.php');
+        }
 
     } elseif ($action === 'list_customers') {
         // Refresh state to get updates

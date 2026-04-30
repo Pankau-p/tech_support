@@ -11,21 +11,39 @@
 
         <label>First Name</label>
         <input type="text" name="first_name" value="<?= htmlspecialchars($customer['firstName'] ?? '') ?>">
+        <?php if (!empty($errors['firstName'])): ?>
+        <span style="color: red;"><?= $errors['firstName'] ?></span>
+        <?php endif; ?>
         <br>
         <label>Last Name</label>
         <input type="text" name="last_name" value="<?= htmlspecialchars($customer['lastName'] ?? '') ?>">
+        <?php if (!empty($errors['lastName'])): ?>
+        <span style="color: red;"><?= $errors['lastName'] ?></span>
+        <?php endif; ?>
         <br>
         <label>Address</label>
         <input type="text" name="address" value="<?= htmlspecialchars($customer['address'] ?? '') ?>">
+        <?php if (!empty($errors['address'])): ?>
+        <span style="color: red;"><?= $errors['address'] ?></span>
+        <?php endif; ?>
         <br>
         <label>City</label>
         <input type="text" name="city" value="<?= htmlspecialchars($customer['city'] ?? '') ?>">
+        <?php if (!empty($errors['city'])): ?>
+        <span style="color: red;"><?= $errors['city'] ?></span>
+        <?php endif; ?>
         <br>
         <label>State:</label>
         <input type="text" name="state" value="<?= htmlspecialchars($customer['state'] ?? '') ?>">
+        <?php if (!empty($errors['state'])): ?>
+        <span style="color: red;"><?= $errors['state'] ?></span>
+        <?php endif; ?>
         <br>
         <label>Postal Code:</label>
         <input type="text" name="postal_code" value="<?= htmlspecialchars($customer['postalCode'] ?? '') ?>">
+        <?php if (!empty($errors['postalCode'])): ?>
+        <span style="color: red;"><?= $errors['postalCode'] ?></span>
+        <?php endif; ?>
         <br>
         <label>Country Code:</label>
         <select name="country_code">
@@ -39,12 +57,21 @@
         <br>
         <label>Phone</label>
         <input type="text" name="phone" value="<?= htmlspecialchars($customer['phone'] ?? '') ?>">
+        <?php if (!empty($errors['phone'])): ?>
+        <span style="color: red;"><?= $errors['phone'] ?></span>
+        <?php endif; ?>
         <br>
         <label>Email:</label>
         <input type="text" name="email" value="<?= htmlspecialchars($customer['email'] ?? '') ?>">
+        <?php if (!empty($errors['email'])): ?>
+        <span style="color: red;"><?= $errors['email'] ?></span>
+        <?php endif; ?>
         <br>
         <label>Password:</label>
         <input type="password" name="password" value="<?= htmlspecialchars($customer['password'] ?? '') ?>">
+        <?php if (!empty($errors['password'])): ?>
+        <span style="color: red;"><?= $errors['password'] ?></span>
+        <?php endif; ?>
         <br>
         <input type="submit" value="<?= isset($customer['customerID']) ? 'Update Customer' : 'Add Customer' ?>">
     </form>
