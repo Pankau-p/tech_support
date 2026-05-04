@@ -1,7 +1,5 @@
 <main>
     <h1>Customer Login</h1>
-
-    <br>
     <p>You mut login before you can register a product.</p>
     <form method="get" action='index.php'>
         <input type="hidden" name="action" value="login_customer">

@@ -20,7 +20,7 @@
 
     <h2>Customers</h2>
     <ul>
-        <li><a href="./view/shared/under_construction.php">Register Product</a></li>
+        <li><a href="controller/product_register">Register Product</a></li>
     </ul>
     
     </nav>
