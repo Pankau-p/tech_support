@@ -1,7 +1,10 @@
 <?php
 
+
 require_once('../../model/database.php');
+require_once('../../model/incident_db.php');
 require_once('../../model/customer_db.php');
+require_once('../../model/register_product_db.php');
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
@@ -19,13 +22,13 @@ if ($action === 'login_customer') {
     }
 
     if ($customer){
-    $products = get_products($db);
+    $products = get_registered_products($db, $customer['customerID']);
     include('../../view/shared/header.php');
     include('../../view/incident_create/create_incident.php');
     include('../../view/shared/footer.php');
     } else {
         include('../../view/shared/header.php');
-        include('../../view/create_incident/get_customer.php');
+        include('../../view/incident_create/get_customer.php');
         include('../../view/shared/footer.php');      
     }
 } elseif ($action === 'create_incident'){
@@ -39,13 +42,13 @@ if ($action === 'login_customer') {
         $success = "The incident was added to our database";
 
         include('../../view/shared/header.php');
-        include('../../view/create_incident/success.php');
+        include('../../view/incident_create/success.php');
         include('../../view/shared/footer.php');
 
     } catch (Exception $e) {
         $error = "There was an error in creating this incident.";
         $customer = get_customer($db, $customer_id);
-        $products = get_products($db);
+        $products = get_registered_products($db, $customer_id);
 
         include('../../view/shared/header.php');
         include('../../view/incident_create/create_incident.php');
@@ -53,7 +56,7 @@ if ($action === 'login_customer') {
     }
 } else {
     include('../../view/shared/header.php');
-    include('../../view/create_incident/get_customer.php');
+    include('../../view/incident_create/get_customer.php');
     include('../../view/shared/footer.php');  
 }
 

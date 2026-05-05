@@ -1,7 +1,7 @@
 <?php
 
 function get_registered_products($db, $customerID) {
-    $query = 'SELECT products.productName, products.productCode
+    $query = 'SELECT products.name, products.productCode
               FROM products 
               JOIN registrations 
               ON products.productCode = registrations.productCode 

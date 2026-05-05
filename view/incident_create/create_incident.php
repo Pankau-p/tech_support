@@ -12,7 +12,7 @@
         <select name="product_code">
             <?php foreach ($products as $product) : ?>
                 <option value="<?= $product['productCode'] ?>">
-                    <?= $product['productCode'] ?> 
+                    <?= $product['name'] ?> 
                 </option>
             <?php endforeach; ?>
         </select>

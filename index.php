@@ -8,7 +8,7 @@
         <li><a href="controller/product_manager">Manage Products</a></li>
         <li><a href="controller/technician_manager">Manage Technicians</a></li>
         <li><a href="controller/customer_manager">Manage Customers</a></li>
-        <li><a href="controller/incident_create">Create Incident</a></li>
+        <li><a href="controller/create_incident">Create Incident</a></li>
         <li><a href="./view/shared/under_construction.php">Assign Incident</a></li>
         <li><a href="./view/shared/under_construction.php">Display Incidents</a></li>
     </ul>
