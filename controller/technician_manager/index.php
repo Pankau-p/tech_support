@@ -1,4 +1,7 @@
 <?php
+// File: controller/technician_manager/index.php
+// Description: Controller for managing technicians.
+// Handles showing, adding, and deleting a technician. 
 
 require_once('../../model/database.php');
 require_once('../../model/technician_db.php');
@@ -7,6 +10,7 @@ $error = null;
 
 $action = $_GET['action'] ?? '';
 
+// Show the form to add a new technician
 if ($action ===  'show_add_technician_form') {
     include('../../view/shared/header.php');
     include('../../view/technician/add_technician.php');
@@ -18,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $action = $_POST['action'] ?? '';
 
+    // Delete a technician
     if ($action === 'delete_technician') {
         
         $tech_id = $_POST['tech_id'] ?? '';
@@ -28,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             $error = "Invalid technician selected";
 
+    // Add a technician
     } elseif ($action === 'add_technician') {
         
         $tech_id = $_POST['tech_id'] ?? '';
@@ -58,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Show all technicians
 // Refresh state to get updates
 $technicians = get_technicians($db);
 

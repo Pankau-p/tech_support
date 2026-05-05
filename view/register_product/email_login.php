@@ -1,3 +1,9 @@
+<?php
+// File: view/register_product/email_login.php
+// Description: Form for authenticating a customer by email address
+// before registering a product.
+?>
+
 <main>
     <h1>Customer Login</h1>
     <p>You must login before you can register a product.</p>

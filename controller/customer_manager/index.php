@@ -1,4 +1,7 @@
 <?php
+// File: controller/customer_manager/index.php
+// Description: Controller for customer management
+// Handles search, adding a customer and showing customers.
 
 require_once('../../model/database.php');
 require_once('../../model/customer_db.php');
@@ -17,7 +20,7 @@ $phone = $_POST['phone'] ?? '';
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
-
+// Search Customers
 if ($action === "search_customers") {
 
     $lastName = $_GET['lastName'] ?? '';
@@ -40,6 +43,7 @@ if ($action === "search_customers") {
             $error  = "No customer selected.";
         }
 
+        // Add Customer
     } elseif ($action === 'show_add_customer') {
         $customer = ['countryCode' => 'CA'];
         $countries = get_countries($db);
@@ -68,6 +72,7 @@ if ($action === "search_customers") {
             }
         }
 
+        // Validation of Customer Data
         if (strlen($postalCode) < 1 || strlen($postalCode) > 20) {
             $errors['postalCode'] = "Required, must be less than 21 characters.";
         } 
@@ -119,6 +124,7 @@ if ($action === "search_customers") {
             include('../../view/shared/footer.php');
         }
 
+        // List Customers
     } elseif ($action === 'list_customers') {
         // Refresh state to get updates
         $customers = get_customers($db);

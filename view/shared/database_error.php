@@ -1,3 +1,8 @@
+<?php
+// File: view/shared/database_error.php
+// Description: Displays a generic error message when a database
+// connection or query error occurs.
+?>
 <!DOCTYPE html>
 <html>
 

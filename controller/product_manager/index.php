@@ -1,4 +1,7 @@
 <?php
+// File: controller/product_manager/index.php
+// Description: Controller for managing a product.
+// Handles showing, adding and deleting a product.
 
 require_once('../../model/database.php');
 require_once('../../model/product_db.php');
@@ -7,6 +10,7 @@ $error = null;
 
 $action = $_GET['action'] ?? '';
 
+// Add and Delete a Product
 if ($action ===  'show_add_product_form') {
     include('../../view/shared/header.php');
     include('../../view/product/add_product.php');
@@ -58,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Show Products
 // Refresh state to get updates
 $products = get_products($db);
 

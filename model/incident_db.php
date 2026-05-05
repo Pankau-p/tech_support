@@ -1,5 +1,17 @@
 <?php
+//
+// Comp 3541 
+// Assignment 2
+//
+// File: model/incident_db.php
+// Description: Model for creating an incident in the DB.
+// Gets all registered products for a customer and then 
+// we can create an incident.
 
+
+// Gets all registered products that belong to 
+// one customer.
+// Returns an array of product codes associated with that customer.
 function get_registered_products($db, $customerID) {
     $query = 'SELECT products.name, products.productCode
               FROM products 
@@ -14,6 +26,8 @@ function get_registered_products($db, $customerID) {
     return $productCodes;
 }
 
+// Creates a new incident in the database
+// using a customer ID and a product Code.
 function create_incident($db, $customerID, $productCode, $title, $description) {
     $query = 'INSERT INTO incidents (customerID,
               productCode, dateOpened, dateClosed, title, description)

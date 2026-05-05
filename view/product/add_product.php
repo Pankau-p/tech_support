@@ -1,3 +1,7 @@
+<?php
+// File: view/product/add_product.php
+// Description: Form for adding a new product to the database.
+?>
 <main>
     <h1>Add Product</h1>
     <form action="index.php" method="post" id="add_form">

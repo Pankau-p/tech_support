@@ -1,3 +1,8 @@
+<?php
+// File: view/register_product/product_select.php
+// Description: Form for selecting a product to register. Displays
+// the customer name and a dropdown of all available products.
+?>
 <main>
     <h1>Register Product</h1>
     <?php if (!empty($error)): ?>

@@ -1,3 +1,9 @@
+<?php
+// File: view/customer/customer_form.php
+// Description: Shared form for adding and updating a customer. Displays
+// input fields for customer details and a country dropdown populated
+// from the database. Used for both add and update actions.
+?>
 <main>
     <h1><?= isset($customer['customerID']) ? 'View/Update Customer' : 'Add Customer' ?></h1>
     <form action="../customer_manager/index.php" method="post" id="add_form">

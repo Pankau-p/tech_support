@@ -1,3 +1,8 @@
+<?php
+// File: view/product/product_list.php
+// Description: Displays a list of all products with options to add
+// or delete a product.
+?>
 <main>
     <h1>Product List</h1>
 

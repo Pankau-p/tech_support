@@ -1,3 +1,9 @@
+<?php
+// File: view/incident_create/get_customer.php
+// Description: Form for retrieving a customer by email address before
+// creating an incident.
+?>
+
 <main>
     <h1>Get Customer</h1>
     <p>You must enter the customer's email address to select the customer.</p>

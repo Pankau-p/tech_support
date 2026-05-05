@@ -1,3 +1,8 @@
+<?php
+// File: view/technician/technician_list.php
+// Description: Displays a list of all technicians with options to add
+// or delete a technician.
+?>
 <main>
     <h1>Technician List</h1>
 

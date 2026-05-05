@@ -1,3 +1,9 @@
+<?php
+// File: index.php
+// Description: Main entry point for the application. Redirects users
+// to the appropriate controller based on navigation.
+?>
+
 <?php include 'view/shared/header.php'; ?>
 <link rel='stylesheet' href='/main.css'>
 <main>

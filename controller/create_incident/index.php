@@ -1,5 +1,8 @@
 <?php
-
+// File: controller/create_incident/index.php
+// Description: Controller for creating an incident, 
+// Handles logging in a customer, getting registered products, 
+// and creating an incident.
 
 require_once('../../model/database.php');
 require_once('../../model/incident_db.php');
@@ -8,6 +11,7 @@ require_once('../../model/register_product_db.php');
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
+// Get a customer to manage
 if ($action === 'login_customer') {
     $customer = null;
     $email = $_GET['email'] ?? '';
@@ -21,6 +25,7 @@ if ($action === 'login_customer') {
         }
     }
 
+    // If successfully accessed a customer, get their registered products
     if ($customer){
     $products = get_registered_products($db, $customer['customerID']);
     include('../../view/shared/header.php');
@@ -31,6 +36,8 @@ if ($action === 'login_customer') {
         include('../../view/incident_create/get_customer.php');
         include('../../view/shared/footer.php');      
     }
+
+    // Create an incident for a specific product
 } elseif ($action === 'create_incident'){
     $product_code = $_POST['product_code'] ?? '';
     $customer_id = $_POST['customer_id'];

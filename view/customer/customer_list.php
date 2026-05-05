@@ -1,3 +1,8 @@
+<?php
+// File: view/customer/customer_list.php
+// Description: Displays a list of all customers. Includes a search form
+// to filter customers by last name and options to select or add a customer.
+?>
 <main>
     <h1>Customer Search</h1>
 

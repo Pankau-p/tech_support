@@ -1,5 +1,9 @@
 <?php
+// File: controller/product_register/index.php
+// Description: Controller for registering a product.
+// Handles Logging in a customer, and registering a product.
 
+ 
 require_once('../../model/database.php');
 require_once('../../model/register_product_db.php');
 require_once('../../model/product_db.php');
@@ -9,10 +13,12 @@ $error = null;
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
+// Login as a customer
 if ($action === 'login_customer') {
     $customer = null;
     $email = $_GET['email'] ?? '';
 
+    // Check email valid and send to DB for login. 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = "Invalid Email.";
     } else {
@@ -32,6 +38,7 @@ if ($action === 'login_customer') {
         include('../../view/register_product/email_login.php');
         include('../../view/shared/footer.php');
     }
+    // Register a Product
 } elseif ($action === 'register_product'){
     $product_code = $_POST['product_code'] ?? '';
     $customer_id = $_POST['customer_id'];

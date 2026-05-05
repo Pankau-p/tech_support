@@ -1,3 +1,7 @@
+<?php
+// File: view/technician/add_technician.php
+// Description: Form for adding a new technician to the database.
+?>
 <main>
     <h1>Add Technician</h1>
     <form action="index.php" method="post" id="add_form">

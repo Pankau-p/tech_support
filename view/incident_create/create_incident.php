@@ -1,3 +1,9 @@
+<?php
+// File: view/incident_create/create_incident.php
+// Description: Form for creating a new incident. Displays customer name,
+// registered products dropdown, title and description fields.
+?>
+
 <main>
     <h1>Create Incident</h1>
     <?php if (!empty($error)): ?>

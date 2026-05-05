@@ -1,5 +1,16 @@
 <?php
-// Get all customers
+//
+// Comp 3541 
+// Assignment 2
+//
+// File: model/customer_db.php
+// Description: Model for accessing a customer in the database.
+// Handles getting all customers, getting one customer, searching for a customer
+// getting countries, add a customer, and updating a customer. 
+
+
+// Gets all customers
+// Returns customers array
 function get_customers($db){
     $query = 'SELECT * FROM customers ORDER BY lastName';
     $statement = $db->prepare($query);
@@ -33,6 +44,7 @@ function search_customers($db, $lastName) {
     return $customers;
 }
 
+// Get the list of countries from the DB
 function get_countries($db) {
     $query = 'SELECT * FROM countries';
     $statement = $db->prepare($query);
@@ -72,6 +84,7 @@ function add_customer($db, $firstName, $lastName,
     return $success;
 }
 
+// Update the customer details
 function update_customer($db, $customerID, $firstName, $lastName, 
                          $address, $city, $state, $postalCode, $countryCode,
                          $phone, $email, $password) {

@@ -1,5 +1,13 @@
 <?php
-// Get all technicians
+//
+// Comp 3541 
+// Assignment 2
+//
+// File: model/technician_db.php
+// Description: Model for accessing a technician in the DB.
+// Handles getting all technicians, adding a technician, and deleting a technician. 
+
+
 function get_technicians($db){
     $query = 'SELECT * FROM technicians ORDER BY techID';
     $statement = $db->prepare($query);

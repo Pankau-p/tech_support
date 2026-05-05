@@ -1,4 +1,13 @@
 <?php
+//
+// Comp 3541 
+// Assignment 2
+//
+// File: model/product_db.php
+// Description: Model for getting and creating a product in the DB.
+// Handles getting, deleting, and adding a product. 
+
+
 // Get all products
 function get_products($db) {
     $query = 'SELECT * FROM products ORDER BY productCode';
@@ -35,8 +44,6 @@ function add_product($db, $product_code, $name, $version, $releaseDate) {
     $statement->closeCursor();
     return $success;
 }
-
-
 ?>
 
 

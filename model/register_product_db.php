@@ -1,6 +1,17 @@
 <?
+//
+// Comp 3541 
+// Assignment 2
+//
+// File: model/register_product_db.php
+// Description: Model for registering a product to a
+// customer in the DB.
+// Gets a customer by email address and then allows
+// the customer to register a product to their account. 
 
-// Log a customer in with email
+
+// Gets a customer by email address
+// Returns customer array or false if not found
 function get_customer_by_email($db, $email) {
     $query = 'SELECT * FROM customers 
               WHERE email =:email';

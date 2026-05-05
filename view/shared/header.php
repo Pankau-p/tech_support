@@ -1,3 +1,8 @@
+<?php
+// File: view/shared/header.php
+// Description: Shared header included at the top of every page.
+// Contains navigation and page structure.
+?>
 <!DOCTYPE html>
 <html lang='en'>
     <head>
