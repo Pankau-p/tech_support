@@ -1,9 +1,12 @@
 <?
+// File: model/register_product_db.php
 //
-// Comp 3541 
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
 // Assignment 2
 //
-// File: model/register_product_db.php
 // Description: Model for registering a product to a
 // customer in the DB.
 // Gets a customer by email address and then allows

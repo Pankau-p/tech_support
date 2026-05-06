@@ -1,5 +1,12 @@
 <?php
 // File: controller/product_manager/index.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Controller for managing a product.
 // Handles showing, adding and deleting a product.
 

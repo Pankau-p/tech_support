@@ -1,5 +1,12 @@
 <?php
 // File: view/customer/customer_list.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Displays a list of all customers. Includes a search form
 // to filter customers by last name and options to select or add a customer.
 ?>

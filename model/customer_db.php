@@ -1,9 +1,12 @@
 <?php
+// File: model/customer_db.php
 //
-// Comp 3541 
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
 // Assignment 2
 //
-// File: model/customer_db.php
 // Description: Model for accessing a customer in the database.
 // Handles getting all customers, getting one customer, searching for a customer
 // getting countries, add a customer, and updating a customer. 

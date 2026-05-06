@@ -1,5 +1,12 @@
 <?php
 // File: controller/create_incident/index.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Controller for creating an incident, 
 // Handles logging in a customer, getting registered products, 
 // and creating an incident.

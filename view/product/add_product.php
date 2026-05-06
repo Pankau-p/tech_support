@@ -1,5 +1,12 @@
 <?php
 // File: view/product/add_product.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Form for adding a new product to the database.
 ?>
 <main>

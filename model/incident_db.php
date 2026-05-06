@@ -1,9 +1,12 @@
 <?php
+// File: model/incident_db.php
 //
-// Comp 3541 
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
 // Assignment 2
 //
-// File: model/incident_db.php
 // Description: Model for creating an incident in the DB.
 // Gets all registered products for a customer and then 
 // we can create an incident.

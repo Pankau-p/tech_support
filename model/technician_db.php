@@ -1,9 +1,12 @@
 <?php
+// File: model/technician_db.php
 //
-// Comp 3541 
+// Author:
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
 // Assignment 2
 //
-// File: model/technician_db.php
 // Description: Model for accessing a technician in the DB.
 // Handles getting all technicians, adding a technician, and deleting a technician. 
 

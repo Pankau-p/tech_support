@@ -1,5 +1,12 @@
 <?php
 // File: view/incident_create/create_incident.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Form for creating a new incident. Displays customer name,
 // registered products dropdown, title and description fields.
 ?>

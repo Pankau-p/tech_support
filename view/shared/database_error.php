@@ -1,5 +1,12 @@
 <?php
 // File: view/shared/database_error.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Displays a generic error message when a database
 // connection or query error occurs.
 ?>

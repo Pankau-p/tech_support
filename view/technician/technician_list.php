@@ -1,5 +1,12 @@
 <?php
 // File: view/technician/technician_list.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Displays a list of all technicians with options to add
 // or delete a technician.
 ?>

@@ -1,5 +1,12 @@
 <?php
 // File: view/technician/add_technician.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Form for adding a new technician to the database.
 ?>
 <main>

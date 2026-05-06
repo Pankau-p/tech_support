@@ -1,9 +1,12 @@
 <?php
+// File: model/product_db.php
 //
-// Comp 3541 
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
 // Assignment 2
 //
-// File: model/product_db.php
 // Description: Model for getting and creating a product in the DB.
 // Handles getting, deleting, and adding a product. 
 

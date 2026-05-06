@@ -1,5 +1,12 @@
 <?php
 // File: controller/customer_manager/index.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Controller for customer management
 // Handles search, adding a customer and showing customers.
 

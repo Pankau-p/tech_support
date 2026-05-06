@@ -1,5 +1,12 @@
 <?php
 // File: view/customer/customer_form.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Shared form for adding and updating a customer. Displays
 // input fields for customer details and a country dropdown populated
 // from the database. Used for both add and update actions.

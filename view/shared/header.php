@@ -1,5 +1,12 @@
 <?php
 // File: view/shared/header.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Shared header included at the top of every page.
 // Contains navigation and page structure.
 ?>

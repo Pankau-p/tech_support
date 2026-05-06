@@ -1,5 +1,12 @@
 <?php
 // File: view/register_product/product_select.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Form for selecting a product to register. Displays
 // the customer name and a dropdown of all available products.
 ?>

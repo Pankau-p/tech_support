@@ -1,5 +1,12 @@
 <?php
 // File: view/product/product_list.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Displays a list of all products with options to add
 // or delete a product.
 ?>

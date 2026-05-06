@@ -1,5 +1,12 @@
 <?php
 // File: index.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Main entry point for the application. Redirects users
 // to the appropriate controller based on navigation.
 ?>

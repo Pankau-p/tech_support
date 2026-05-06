@@ -1,5 +1,12 @@
 <?php
 // File: controller/product_register/index.php
+//
+// Author: 
+// Course: COMP 3541 - Web Programming
+// Date: 2026-05-05
+//
+// Assignment 2
+//
 // Description: Controller for registering a product.
 // Handles Logging in a customer, and registering a product.
 
