@@ -58,4 +58,23 @@ class RegisterProductDB {
             exit();
         }
     }
+
+    public function is_registered($customer_id, $product_code) {
+        try {
+            $query = 'SELECT * FROM registrations
+                      WHERE customerID = :customer_id
+                      AND productCode = :product_code';
+            $statement = $this->db->prepare($query);
+            $statement->bindValue(':customer_id', $customer_id);
+            $statement->bindValue(':product_code', $product_code);
+            $statement->execute();
+            $result = $statement->fetch();
+            $statement->closeCursor();
+            return $result !== false;
+        } catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            include('../view/shared/database_error.php');
+            exit();
+        }
+    }
 }

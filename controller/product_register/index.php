@@ -20,6 +20,7 @@ require_once('../../model/customer_db.php');
 // Create an object from the class, passing $db in
 $register_product_db = new RegisterProductDB($db);
 $product_db = new ProductDB($db);
+$customer_db = new CustomerDB($db);
 
 $error = null;
 
@@ -55,15 +56,7 @@ if ($action === 'login_customer') {
     $product_code = $_POST['product_code'] ?? '';
     $customer_id = $_POST['customer_id'];
     
-    try{
-        $register_product_db->register_product($customer_id, $product_code);
-        $success = "Product (" . $product_code . ") was registered successfully.";
-
-        include('../../view/shared/header.php');
-        include('../../view/register_product/success.php');
-        include('../../view/shared/footer.php');
-
-    } catch (Exception $e) {
+    if ($register_product_db->is_registered($customer_id, $product_code)) {
         $error = "That product is already registered to this customer.";
         $customer = $customer_db->get_customer($customer_id);
         $products = $product_db->get_products();
@@ -71,7 +64,14 @@ if ($action === 'login_customer') {
         include('../../view/shared/header.php');
         include('../../view/register_product/product_select.php');
         include('../../view/shared/footer.php');
-    }
+    } else {
+        $register_product_db->register_product($customer_id, $product_code);
+        $success = "Product (" . $product_code . ") was registered successfully.";
+        include('../../view/shared/header.php');
+        include('../../view/register_product/success.php');
+        include('../../view/shared/footer.php');
+
+    } 
 } else {
     include('../../view/shared/header.php');
     include('../../view/register_product/email_login.php');
