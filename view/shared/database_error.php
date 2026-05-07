@@ -14,7 +14,7 @@
 <html>
 
 <!-- the head section -->
-<?php include 'shared/header.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/header.php'; ?>
 
 <!-- the body section -->
 <body>
@@ -29,6 +29,6 @@
         <p>&nbsp;</p>
     </main>
 
-<?php include 'shared/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/footer.php'; ?>
 </body>
 </html>

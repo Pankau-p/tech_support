@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Show Products
 // Refresh state to get updates
-$products = $product_db->get_products($db);
+$products = $product_db->get_products();
 
 
 // render page

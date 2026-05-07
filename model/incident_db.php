@@ -37,7 +37,7 @@ class IncidentDB {
             return $productCodes;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }
@@ -63,7 +63,7 @@ class IncidentDB {
 
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }

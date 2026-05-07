@@ -30,7 +30,7 @@ class CustomerDB {
             return $customers;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }   
@@ -48,7 +48,7 @@ class CustomerDB {
             return $customer;   
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');            
             exit();
         }
     }
@@ -66,7 +66,7 @@ class CustomerDB {
             return $customers;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }
@@ -82,7 +82,7 @@ class CustomerDB {
             return $countries;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }
@@ -117,7 +117,7 @@ class CustomerDB {
             return $success;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
                       
@@ -161,7 +161,7 @@ class CustomerDB {
             return $success;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }                 
     }

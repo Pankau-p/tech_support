@@ -29,7 +29,7 @@ class ProductDB {
             return $products;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            include ('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }
@@ -37,7 +37,7 @@ class ProductDB {
     // Delete one product with product code
     public function delete_product($product_code){
         try {
-            $query = 'DELETE FROM products 
+            $query = 'DELETE FROM products
                       WHERE productCode = :product_code';    
             $statement = $this->db->prepare($query);
             $statement->bindValue(':product_code', $product_code);
@@ -46,7 +46,7 @@ class ProductDB {
             return $success;
         } catch (PDOException $e) {
             $error_message= $e->getMessage();
-            include('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }
@@ -68,7 +68,7 @@ class ProductDB {
     return $success;
         } catch (PDOException $e) {
             $error_message= $e->getMessage();
-            include('../view/shared/database_error.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
             exit();
         }
     }

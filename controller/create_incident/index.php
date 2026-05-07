@@ -16,6 +16,12 @@ require_once('../../model/incident_db.php');
 require_once('../../model/customer_db.php');
 require_once('../../model/register_product_db.php');
 
+// Instantiate the RegisterProductDB class
+// Create an object from the class, passing $db in
+$incident_db = new IncidentDB($db);
+$register_product_db = new RegisterProductDB($db);
+$customer_db = new CustomerDB($db);
+
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 // Get a customer to manage
@@ -26,7 +32,7 @@ if ($action === 'login_customer') {
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = "Invalid Email.";
     } else {
-        $customer = get_customer_by_email($db, $email);
+        $customer = $register_product_db->get_customer_by_email($email);
         if (!$customer) {
             $error = "Email not found.";
         }
@@ -34,7 +40,7 @@ if ($action === 'login_customer') {
 
     // If successfully accessed a customer, get their registered products
     if ($customer){
-    $products = get_registered_products($db, $customer['customerID']);
+    $products = $incident_db->get_registered_products($customer['customerID']);
     include('../../view/shared/header.php');
     include('../../view/incident_create/create_incident.php');
     include('../../view/shared/footer.php');
@@ -51,24 +57,14 @@ if ($action === 'login_customer') {
     $title = $_POST['title'];
     $description = $_POST['description'];
 
-    try{
-        create_incident($db, $customer_id, $product_code, $title, $description);
-        $success = "The incident was added to our database";
+    $incident_db->create_incident($customer_id, $product_code, $title, $description);
+    $success = "The incident was added to our database";
 
-        include('../../view/shared/header.php');
-        include('../../view/incident_create/success.php');
-        include('../../view/shared/footer.php');
+    include('../../view/shared/header.php');
+    include('../../view/incident_create/success.php');
+    include('../../view/shared/footer.php');
 
-    } catch (Exception $e) {
-        $error = "There was an error in creating this incident.";
-        $customer = get_customer($db, $customer_id);
-        $products = get_registered_products($db, $customer_id);
-
-        include('../../view/shared/header.php');
-        include('../../view/incident_create/create_incident.php');
-        include('../../view/shared/footer.php');
-    }
-} else {
+    } else {
     include('../../view/shared/header.php');
     include('../../view/incident_create/get_customer.php');
     include('../../view/shared/footer.php');  
