@@ -16,6 +16,11 @@ require_once('../../model/register_product_db.php');
 require_once('../../model/product_db.php');
 require_once('../../model/customer_db.php');
 
+// Instantiate the RegisterProductDB class
+// Create an object from the class, passing $db in
+$register_product_db = new RegisterProductDB($db);
+$product_db = new ProductDB($db);
+
 $error = null;
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
@@ -29,14 +34,14 @@ if ($action === 'login_customer') {
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = "Invalid Email.";
     } else {
-        $customer = get_customer_by_email($db, $email);
+        $customer = $register_product_db->get_customer_by_email($email);
         if (!$customer) {
             $error = "Email not found.";
         }
     }
 
     if ($customer){
-        $products = get_products($db);
+        $products = $product_db->get_products();
         include('../../view/shared/header.php');
         include('../../view/register_product/product_select.php');
         include('../../view/shared/footer.php');
@@ -51,7 +56,7 @@ if ($action === 'login_customer') {
     $customer_id = $_POST['customer_id'];
     
     try{
-        register_product($db, $customer_id, $product_code);
+        $register_product_db->register_product($customer_id, $product_code);
         $success = "Product (" . $product_code . ") was registered successfully.";
 
         include('../../view/shared/header.php');
@@ -60,8 +65,8 @@ if ($action === 'login_customer') {
 
     } catch (Exception $e) {
         $error = "That product is already registered to this customer.";
-        $customer = get_customer($db, $customer_id);
-        $products = get_products($db);
+        $customer = $customer_db->get_customer($customer_id);
+        $products = $product_db->get_products();
 
         include('../../view/shared/header.php');
         include('../../view/register_product/product_select.php');

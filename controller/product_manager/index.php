@@ -13,6 +13,10 @@
 require_once('../../model/database.php');
 require_once('../../model/product_db.php');
 
+// Instantiate the ProductDB class
+// Create an object from the class, passing $db in
+$product_db = new ProductDB($db);
+
 $error = null;
 
 $action = $_GET['action'] ?? '';
@@ -34,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $product_code = $_POST['product_code'] ?? '';
 
         if (!empty($product_code)) {
-            delete_product($db, $product_code);
+            $product_db->delete_product($product_code);
         } else {
             $error = "Invalid product selected";
             }
@@ -64,14 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // If no errors, send to model
         if (!$error) {
-            add_product($db, $product_code, $name, $version, $releaseDate);
+            $product_db->add_product($product_code, $name, $version, $releaseDate);
         } 
     }
 }
 
 // Show Products
 // Refresh state to get updates
-$products = get_products($db);
+$products = $product_db->get_products($db);
 
 
 // render page

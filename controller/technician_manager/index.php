@@ -13,6 +13,10 @@
 require_once('../../model/database.php');
 require_once('../../model/technician_db.php');
 
+// Instantiate the TechnicianDB class
+// Create an object from the class, passing $db in
+$technician_db = new TechnicianDB($db);
+
 $error = null;
 
 $action = $_GET['action'] ?? '';
@@ -35,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tech_id = $_POST['tech_id'] ?? '';
 
         if (!empty($tech_id)) {
-            delete_technician($db, $tech_id);
+            $technician_db->delete_technician($tech_id);
         } else {
-            }
             $error = "Invalid technician selected";
+        }
 
     // Add a technician
     } elseif ($action === 'add_technician') {
@@ -65,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // If no errors, send to model
         if (!$error) {
-            add_technician($db, $tech_id, $first_name, $last_name,
+            $technician_db->add_technician($tech_id, $first_name, $last_name,
                            $email, $phone, $password);
         } 
     }
@@ -73,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Show all technicians
 // Refresh state to get updates
-$technicians = get_technicians($db);
+$technicians = $technician_db->get_technicians();
 
 
 // render page
