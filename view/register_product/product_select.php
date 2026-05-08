@@ -34,5 +34,8 @@
         <input type="hidden" name="action" value="register_product" />
         <input type="hidden" name="customer_id" value="<?= $customer['customerID']  ?>">
         <input type="submit" value="Register Product" />
+
+    <p>You are logged in as <?php echo(htmlspecialchars($customer['email'])); ?></p>
+    <button type="submit" name="action" value="logout">Logout</button>
     </form>
 </main>

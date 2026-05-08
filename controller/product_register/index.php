@@ -10,6 +10,7 @@
 // Description: Controller for registering a product.
 // Handles Logging in a customer, and registering a product.
 
+session_start();
  
 require_once('../../model/database.php');
 require_once('../../model/register_product_db.php');
@@ -38,8 +39,10 @@ if ($action === 'login_customer') {
         $customer = $register_product_db->get_customer_by_email($email);
         if (!$customer) {
             $error = "Email not found.";
+        } else {
+        $_SESSION['customer'] = $customer;
         }
-    }
+    } 
 
     if ($customer){
         $products = $product_db->get_products();
@@ -72,9 +75,22 @@ if ($action === 'login_customer') {
         include('../../view/shared/footer.php');
 
     } 
+} elseif ($action === 'logout') {
+        session_destroy();
+        include('../../view/shared/header.php');
+        include('../../view/register_product/email_login.php');
+        include('../../view/shared/footer.php');
 } else {
-    include('../../view/shared/header.php');
-    include('../../view/register_product/email_login.php');
-    include('../../view/shared/footer.php');
+    if (isset($_SESSION['customer'])) {
+        $customer = $_SESSION['customer'];
+        $products = $product_db->get_products();
+        include('../../view/shared/header.php');
+        include('../../view/register_product/product_select.php');
+        include('../../view/shared/footer.php');
+    } else {
+        include('../../view/shared/header.php');
+        include('../../view/register_product/email_login.php');
+        include('../../view/shared/footer.php');
+    }
 }
 ?>
