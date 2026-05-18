@@ -22,8 +22,8 @@
         <li><a href="controller/technician_manager">Manage Technicians</a></li>
         <li><a href="controller/customer_manager">Manage Customers</a></li>
         <li><a href="controller/create_incident">Create Incident</a></li>
-        <li><a href="./view/shared/under_construction.php">Assign Incident</a></li>
-        <li><a href="/controller/assign_incident/">Display Incidents</a></li>
+        <li><a href="controller/assign_incident">Assign Incident</a></li>
+        <li><a href="./view/shared/under_construction.php">Display Incidents</a></li>
     </ul>
 
     <h2>Technicians</h2>    

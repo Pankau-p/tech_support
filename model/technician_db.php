@@ -76,5 +76,21 @@ class TechnicianDB {
         }
     }
 
+    public function get_technician($tech_id) {
+        try {
+            $query = 'SELECT * FROM technicians
+                      WHERE techID =:techID';
+            $statement = $this->db->prepare($query);
+            $statement->bindValue(':techID', $tech_id);
+            $statement->execute();
+            $technician = $statement->fetch();
+            $statement->closeCursor();
+            return $technician;
+        } catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
+            exit();
+        }
+    }
 }
 ?>

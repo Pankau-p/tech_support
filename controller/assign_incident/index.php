@@ -13,10 +13,13 @@
 session_start();
 
 require_once('../../model/database.php');
+require_once('../../model/technician_db.php');
+require_once('../../model/incident_db.php');
 require_once('../../model/assign_incident_db.php');
 
 $assign_incident_db = new AssignIncidentDB($db);
-
+$technician_db = new TechnicianDB($db);
+$incident_db = new IncidentDB($db);
 $error = null;
 
 
@@ -34,6 +37,9 @@ if ($action === 'select_incident') {
 } elseif ($action === 'select_technician') {
     $tech_id = $_POST['tech_id'];
     $_SESSION['tech_id'] = $tech_id;
+
+    $technician = $technician_db->get_technician($tech_id);
+    $incident = $incident_db->get_incident($_SESSION['incident_id']);
 
     include('../../view/shared/header.php');
     include('../../view/incident_assign/assign_incident.php');

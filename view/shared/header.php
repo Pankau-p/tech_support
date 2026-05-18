@@ -26,8 +26,7 @@
             </nav>
             <hr class="divider">
         </header>
-    </body>
-</html>
+
 
 
 

@@ -30,7 +30,7 @@ class RegisterProductDB {
             $statement->execute();
             $customer = $statement->fetch();
             $statement->closeCursor();
-    return $customer;
+            return $customer;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
             include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');

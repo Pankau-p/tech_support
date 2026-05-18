@@ -30,7 +30,7 @@
                 <td><?php echo htmlspecialchars($incident['title']); ?></td>
                 <td><?php echo htmlspecialchars($incident['description']); ?></td>
             <td>
-                <form method='post' action='index.php'>
+                <form method='post' action='/Assignment_2/controller/assign_incident/index.php'>
                     <input type='hidden' name='action'
                            value='select_incident'>
                     <input type="hidden" name="incident_id"

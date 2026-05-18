@@ -67,5 +67,24 @@ class IncidentDB {
             exit();
         }
     }
+
+    public function get_incident($incident_id) {
+        try {
+            $query = 'SELECT * FROM incidents
+                      JOIN customers
+                      ON incidents.customerID = customers.customerID
+                      WHERE incidentID =:incidentID';
+            $statement = $this->db->prepare($query);
+            $statement->bindValue(':incidentID', $incident_id);
+            $statement->execute();
+            $incident = $statement->fetch();
+            $statement->closeCursor();
+            return $incident;
+        } catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');
+            exit();
+        }
+    }
 }
 ?>
