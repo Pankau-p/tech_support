@@ -9,7 +9,6 @@
 //
 // Description: Model for assigning an incident to
 // a technician in the DB.
-// Gets 
 
 
 class AssignIncidentDB {
