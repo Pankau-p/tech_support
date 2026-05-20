@@ -10,7 +10,14 @@
 // Description: Controller for creating an incident, 
 // Handles logging in a customer, getting registered products, 
 // and creating an incident.
+
 session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /Assignment_2/controller/admin/index.php');
+    exit();
+}
+
 
 require_once('../../model/database.php');
 require_once('../../model/technician_db.php');

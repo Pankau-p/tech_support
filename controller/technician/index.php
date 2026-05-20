@@ -1,5 +1,5 @@
 <?php
-// File: controller/admin/index.php
+// File: controller/technician/index.php
 //
 // Author: 
 // Course: COMP 3541 - Web Programming
@@ -7,7 +7,7 @@
 //
 // Assignment 2
 //
-// Description: Controller for authenticating an admin user
+// Description: Controller for authenticating an technician user
 //
 
 session_start();
@@ -21,50 +21,51 @@ $error = null;
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 
-if ($action === 'admin_login') {
+if ($action === 'tech_login') {
 
-    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    if (empty($username)) {
-        $error = "Username is required.";
+    if (empty($email)) {
+        $error = "email is required.";
     } elseif (empty($password)) {
         $error = "Password is required.";
     } else {
-        $admin = $auth_db->get_admin($username, $password);
+        $tech = $auth_db->get_tech_login($email, $password);
 
-        if ($admin) {
-            $_SESSION['admin'] = true;
-            $_SESSION['admin_username'] = $admin['username'];
+        if ($tech) {
+            $_SESSION['tech'] = true;
+            $_SESSION['tech_email'] = $tech['email'];
+            $_SESSION['tech_id'] = $tech['techID'];
 
-            header('Location: /Assignment_2/controller/admin/index.php?action=menu');
+            header('Location: /Assignment_2/controller/technician/index.php?action=menu');
             exit();
         } else {
             // no match, show login form again with error
-            $error = "Invalid username or password.";
+            $error = "Invalid email or password.";
         }
     }
 } elseif ($action === 'menu') {
-    if (!isset($_SESSION['admin'])) {
+    if (!isset($_SESSION['tech'])) {
         
         header('Location: /Assignment_2/controller/index.php');
         exit();
     }
     include('../../view/shared/header.php');
-    include('../../view/admin/menu.php');
+    include('../../view/tech/select_incident.php');
     include('../../view/shared/footer.php');
-} elseif ($action === 'admin_logout') {
+} elseif ($action === 'tech_logout') {
     session_destroy();
     header('Location: /Assignment_2/index.php');
     exit();
 } else {
     include('../../view/shared/header.php');
-    include('../../view/admin/login.php');
+    include('../../view/tech/login.php');
     include('../../view/shared/footer.php');
 }
 
 if ($error) {
     include('../../view/shared/header.php');
-    include('../../view/admin/login.php');
+    include('../../view/tech/login.php');
     include('../../view/shared/footer.php');
 }

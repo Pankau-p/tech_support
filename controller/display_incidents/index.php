@@ -11,6 +11,13 @@
 // initially displays unassigned incidents with option to switch 
 // to assigned incidents with technician information
 
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /Assignment_2/controller/admin/index.php');
+    exit();
+}
+
 require_once('../../model/database.php');
 require_once('../../model/display_incidents_db.php');
 

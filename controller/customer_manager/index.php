@@ -10,6 +10,13 @@
 // Description: Controller for customer management
 // Handles search, adding a customer and showing customers.
 
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /Assignment_2/controller/admin/index.php');
+    exit();
+}
+
 require_once('../../model/database.php');
 require_once('../../model/customer_db.php');
 

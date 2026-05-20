@@ -16,12 +16,14 @@ require_once('../../model/database.php');
 require_once('../../model/register_product_db.php');
 require_once('../../model/product_db.php');
 require_once('../../model/customer_db.php');
+require_once('../../model/auth_db.php');
 
 // Instantiate the RegisterProductDB class
 // Create an object from the class, passing $db in
 $register_product_db = new RegisterProductDB($db);
 $product_db = new ProductDB($db);
 $customer_db = new CustomerDB($db);
+$auth_db = new AuthDB($db);
 
 $error = null;
 
@@ -30,13 +32,14 @@ $action = $_POST['action'] ?? $_GET['action'] ?? '';
 // Login as a customer
 if ($action === 'login_customer') {
     $customer = null;
-    $email = $_GET['email'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
     // Check email valid and send to DB for login. 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = "Invalid Email.";
     } else {
-        $customer = $register_product_db->get_customer_by_email($email);
+        $customer = $auth_db->get_customer_login($email, $password);
         if (!$customer) {
             $error = "Email not found.";
         } else {
@@ -77,9 +80,8 @@ if ($action === 'login_customer') {
     } 
 } elseif ($action === 'logout') {
         session_destroy();
-        include('../../view/shared/header.php');
-        include('../../view/register_product/email_login.php');
-        include('../../view/shared/footer.php');
+        header('Location: /Assignment_2/index.php');
+        exit();
 } else {
     if (isset($_SESSION['customer'])) {
         $customer = $_SESSION['customer'];

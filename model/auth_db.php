@@ -35,4 +35,42 @@ class AuthDB {
             exit();
         }
     }
+
+    public function get_tech_login($email, $password) {
+        try {
+            $query = 'SELECT * FROM technicians
+                      WHERE technicians.email = :email
+                      AND technicians.password = :password';
+            $statement = $this->db->prepare($query);
+            $statement->bindValue(':email', $email);
+            $statement->bindValue(':password', $password);
+            $statement->execute();
+            $tech_user = $statement->fetch();
+            $statement->closeCursor();
+            return $tech_user;
+        } catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');            
+            exit();
+        }
+    }
+
+    public function get_customer_login($email, $password) {
+        try {
+            $query = 'SELECT * FROM customers
+                      WHERE customers.email = :email
+                      AND customers.password = :password';
+            $statement = $this->db->prepare($query);
+            $statement->bindValue(':email', $email);
+            $statement->bindValue(':password', $password);
+            $statement->execute();
+            $customer = $statement->fetch();
+            $statement->closeCursor();
+            return $customer;
+        } catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            include($_SERVER['DOCUMENT_ROOT'] . '/Assignment_2/view/shared/database_error.php');            
+            exit();
+        }
+    }
 }

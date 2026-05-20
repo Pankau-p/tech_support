@@ -11,6 +11,13 @@
 // Handles logging in a customer, getting registered products, 
 // and creating an incident.
 
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /Assignment_2/controller/admin/index.php');
+    exit();
+}
+
 require_once('../../model/database.php');
 require_once('../../model/incident_db.php');
 require_once('../../model/customer_db.php');

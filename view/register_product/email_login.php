@@ -14,9 +14,16 @@
 <main>
     <h1>Customer Login</h1>
     <p>You must login before you can register a product.</p>
-    <form method="get" action='index.php'>
+    <form id="add_form" method="post" action='index.php'>
+        <label>Email: </label>
+        <input type="email" name="email">        
+        <br>
+        
+        <label>Password: </label>
+        <input type="password" name="password">        
+        <br>
+
         <input type="hidden" name="action" value="login_customer">
-        <input type="text" name="email" placeholder="Enter your email" value="<?= htmlspecialchars($email?? '') ?>">
-            <button type="submit">Login</button>
+        <button type="submit">Login</button>
     </form>
 </main>

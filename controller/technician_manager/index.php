@@ -10,6 +10,13 @@
 // Description: Controller for managing technicians.
 // Handles showing, adding, and deleting a technician. 
 
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /Assignment_2/controller/admin/index.php');
+    exit();
+}
+
 require_once('../../model/database.php');
 require_once('../../model/technician_db.php');
 

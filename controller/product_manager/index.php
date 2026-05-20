@@ -10,6 +10,13 @@
 // Description: Controller for managing a product.
 // Handles showing, adding and deleting a product.
 
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /Assignment_2/controller/admin/index.php');
+    exit();
+}
+
 require_once('../../model/database.php');
 require_once('../../model/product_db.php');
 

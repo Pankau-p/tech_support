@@ -12,30 +12,16 @@
 ?>
 
 <?php include 'view/shared/header.php'; ?>
-<link rel='stylesheet' href='/main.css'>
+
 <main>
     <nav>
-        
-    <h2>Administrators</h2>
-    <ul>
-        <li><a href="controller/product_manager">Manage Products</a></li>
-        <li><a href="controller/technician_manager">Manage Technicians</a></li>
-        <li><a href="controller/customer_manager">Manage Customers</a></li>
-        <li><a href="controller/create_incident">Create Incident</a></li>
-        <li><a href="controller/assign_incident">Assign Incident</a></li>
-        <li><a href="controller/display_incidents/">Display Incidents</a></li>
-    </ul>
-
-    <h2>Technicians</h2>    
-    <ul>
-        <li><a href="./view/shared/under_construction.php">Update Incident</a></li>
-    </ul>
-
-    <h2>Customers</h2>
-    <ul>
-        <li><a href="controller/product_register">Register Product</a></li>
-    </ul>
-    
+        <br />
+        <h2>Main Menu</h2>
+        <ul>
+            <li><a href="controller/admin">Administrators</a></li>
+            <li><a href="./controller/technician/index.php">Technicians</a></li>
+            <li><a href="controller/product_register">Customers</a></li>
+        </ul>
     </nav>
-</section>
+</main>
 <?php include 'view/shared/footer.php'; ?>

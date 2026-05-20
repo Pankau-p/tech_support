@@ -15,16 +15,17 @@
     <head>
         <meta charset="UTF-8">
         <title>SportsPro Technical Support</title>
-        <link rel='stylesheet' href='./../../../Assignment_2/main.css'>
+        <link rel='stylesheet' href='/Assignment_2/main.css'>
     </head>
     <body>
         <header>
             <h1>Sports Pro Technical Support</h1>
             <p> Sports management software for the sports enthusiast</p>
+            <br />
             <nav>
-                <a href='./../../index.php'>Home</a>
+                <a href='/Assignment_2/index.php'>Home</a>
             </nav>
-            <hr class="divider">
+            <br />
         </header>
 
 
